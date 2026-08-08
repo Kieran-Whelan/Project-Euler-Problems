@@ -11,5 +11,6 @@ def is_evenly_divisible(number): #evenly divisible by numbers 1-20
 
 #100000 arbitrary
 for i in range(0, 1000000000, 20):
-    if is_evenly_divisible(i):
+    if is_evenly_divisible(i) and i != 0:
         print(i)
+        break

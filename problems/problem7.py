@@ -1,21 +1,21 @@
-
+from math import sqrt
 def is_prime(n):
-    factors = 0
-    nums = [i for i in range(1, n+1)]
-    for j in nums:
-        if factors >= 3:
+    for i in range(2, int(sqrt(n)) + 1):
+        if n % i == 0:
             return False
-        if n % j == 0:
-            factors += 1
-    if factors == 2:
-        return True
+    return True
 
 def nth_prime(n):
-    i = 1 # 2 is only even prime
+    i = 0
     for j in range(1, n**2, 2): #odds only
         if is_prime(j):
             i += 1
             if i == n:
                 return j
+    return 2
+
 
 print(nth_prime(10001))
+
+
+

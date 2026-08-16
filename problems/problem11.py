@@ -31,9 +31,27 @@ for line in grid.splitlines():
 
 largest = 0
 
-for i in range(len(matrix)):
-    for j in range(0, len(matrix), 4):
-        product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+for i in range(len(matrix[0])):
+    for j in range(len(matrix) - 3):
+        product = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i]
+        if product > largest:
+            largest = product
+
+for i in range(len(matrix[0]) - 3):
+    for j in range(len(matrix)):
+        product = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3]
+        if product > largest:
+            largest = product
+
+for i in range(len(matrix) - 3):
+    for j in range(len(matrix) - 3):
+        product = matrix[j][i] * matrix[j + 1][i + 1] * matrix[j + 2][i + 2] * matrix[j + 3][i + 3]
+        if product > largest:
+            largest = product
+
+for i in range(len(matrix) - 3):
+    for j in range(len(matrix) - 3):
+        product = matrix[j][i] * matrix[j - 1][i + 1] * matrix[j - 2][i + 2] * matrix[j - 3][i + 3]
         if product > largest:
             largest = product
 
